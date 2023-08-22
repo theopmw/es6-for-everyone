@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Spread Examples</title>
-</head>
-<body>
-<script>
-  const inventors = ['Einstein', 'Newton', 'Galileo'];
-  const newInventors = ['Musk', 'Jobs'];
-  inventors.push(...newInventors);
-  console.log(inventors);
+  <head>
+    <meta charset="UTF-8" />
+    <title>Spread Examples</title>
+  </head>
+  <body>
+    <script>
+      const inventors = ["Einstein", "Newton", "Galileo"];
+      const newInventors = ["Musk", "Jobs"];
+      inventors.push(...newInventors);
+      console.log(inventors);
 
-  const name = ['Wes', 'Bos'];
+      const name = ["Theo", "Wright"];
 
-  function sayHi(first, last) {
-    alert(`Hey there ${first} ${last}`);
-  }
+      function sayHi(first, last) {
+        alert(`Hey there ${first} ${last}`);
+      }
 
-  sayHi(...name);
+      // passing arguments as indexes
+      // sayHi(name[0], name[1])
 
-</script>
-</body>
+      // using the spread operator to pass arguments into the function
+      sayHi(...name);
+    </script>
+  </body>
 </html>
-
-

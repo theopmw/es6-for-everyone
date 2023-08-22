@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Spread Examples</title>
-</head>
-<body>
-  <div class="people">
-    <p>Wes</p>
-    <p>Kait</p>
-    <p>Randy</p>
-  </div>
-<script>
-  const people = Array.from(document.querySelectorAll('.people p'));
-  const names = people.map((person) => person.textContent );
+  <head>
+    <meta charset="UTF-8" />
+    <title>Spread Examples</title>
+  </head>
+  <body>
+    <div class="people">
+      <p>Wes</p>
+      <p>Kait</p>
+      <p>Randy</p>
+    </div>
+    <script>
+      // Convert from node list to array using Array.from
+      // This reads nicer
+      const peopleWithArrayFrom = Array.from(
+        document.querySelectorAll(".people p")
+      );
+      // console.log(peopleWithArrayFrom);
 
-  const deepDish = {
-    pizzaName: 'Deep Dish',
-    size: 'Medium',
-    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
-  };
+      // Convert from node list to array using ...
+      const people = [...document.querySelectorAll(".people p")];
+      // console.log(people);
 
-  const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
-  // console.log(shoppingList);
+      const names = people.map((person) => person.textContent);
 
-  const comments = [
-    { id: 209384, text: 'I love your dog!' },
-    { id: 523423, text: 'Cuuute! 🐐' },
-    { id: 632429, text: 'You are so dumb' },
-    { id: 192834, text: 'Nice work on this wes!' },
-  ];
-  const id = 632429;
-  const commentIndex = comments.findIndex(comment => comment.id === id);
+      const deepDish = {
+        pizzaName: "Deep Dish",
+        size: "Medium",
+        ingredients: ["Marinara", "Italian Sausage", "Dough", "Cheese"],
+      };
 
-  const newComments = [...comments.slice(0,commentIndex), ...comments.slice(commentIndex + 1)];
-  console.log(newComments);
+      const shoppingList = ["Milk", "Eggs", "Flour", ...deepDish.ingredients];
+      // console.log(shoppingList);
 
-</script>
-</body>
+      const comments = [
+        { id: 209384, text: "I love your dog!" },
+        { id: 523423, text: "Cuuute! 🐐" },
+        { id: 632429, text: "You are so dumb" },
+        { id: 192834, text: "Nice work on this wes!" },
+      ];
+
+      const id = 632429;
+      const commentIndex = comments.findIndex(
+        (comment) => comment.id === 632429
+      );
+      console.log(commentIndex);
+
+      const niceComments = [
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ];
+      console.log(niceComments);
+    </script>
+  </body>
 </html>
